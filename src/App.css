@@ -1,0 +1,48 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  line-height: 1.7;
+}
+
+.page h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.page header p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.games {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.card a,
+footer a {
+  color: #0969da;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 2rem;
+}
