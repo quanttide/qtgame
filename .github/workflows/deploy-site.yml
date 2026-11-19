@@ -15,6 +15,8 @@
 #   - CDN 域名 game.quanttide.com：源站回该桶（oss:80），l2_oss_key 私有回源
 #     （private_oss_auth=on，角色 AliyunCDNAccessingPrivateOSSRole），另配 https_force
 #     与 back_to_origin_url_rewrite（/ 及未知路径 → /index.html）
+#   - 回源改写排除 `/tycoon$`：该路径直出本仓 `tycoon-brochure.html` 宣传册原型
+#     （无扩展名 key，Content-Type:text/html）；React 化改造落地后需回销此排除
 #   - 证书 *.quanttide.com 泛域名证书（本机 acme.sh 签发；
 #     ~/.acme.sh/deploy-cdn-cert-quanttide-wildcard.sh 作为 reloadcmd 在续期时自动重新绑定）
 #   - DNS：quanttide.com 下 game CNAME → *.w.kunlunaq.com
@@ -74,6 +76,11 @@ jobs:
         run: |
           ossutil cp dist/index.html oss://${{ env.OSS_BUCKET }}/index.html -f --meta "Cache-Control:no-cache"
           ossutil cp dist/favicon.svg oss://${{ env.OSS_BUCKET }}/favicon.svg -f --meta "Cache-Control:no-cache"
+
+      # /tycoon 直出宣传册原型（无扩展名 key；回源改写已排除 /tycoon）
+      - name: Upload tycoon 宣传册（无扩展名 key）
+        run: |
+          ossutil cp tycoon-brochure.html oss://${{ env.OSS_BUCKET }}/tycoon -f --meta "Content-Type:text/html" --meta "Cache-Control:no-cache"
 
       - name: Refresh CDN
         run: |
