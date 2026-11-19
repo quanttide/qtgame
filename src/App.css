@@ -1,16 +1,16 @@
-.page {
+.home {
   max-width: 640px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   line-height: 1.7;
 }
 
-.page h1 {
+.home h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
-.page header p {
+.home header p {
   color: #555;
   margin-bottom: 2rem;
 }

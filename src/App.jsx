@@ -18,7 +18,7 @@ const games = [
 
 function Home() {
   return (
-    <main className="page">
+    <main className="home">
       <header>
         <h1>量潮游戏</h1>
         <p>游戏业务入口：产品在下面两家，领域工程与内容在 quanttide-game。</p>
